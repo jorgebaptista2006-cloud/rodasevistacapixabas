@@ -1,3 +1,196 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jorge Vitor | Turismo Executivo ES</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+
+body{
+font-family:'Poppins',sans-serif;
+background:#f4f6f9;
+color:#1e293b;
+line-height:1.6;
+}
+
+header{
+height:85vh;
+background:url('convento.jpg') center/cover no-repeat;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+color:white;
+padding:20px;
+}
+
+header h1{
+font-size:36px;
+font-weight:700;
+text-shadow:0 4px 15px rgba(0,0,0,0.6);
+}
+
+header p{
+font-size:18px;
+margin:15px 0;
+text-shadow:0 4px 15px rgba(0,0,0,0.6);
+}
+
+.btn{
+display:inline-block;
+padding:12px 25px;
+border-radius:40px;
+text-decoration:none;
+font-weight:600;
+margin-top:10px;
+transition:0.3s;
+font-size:14px;
+}
+
+.whatsapp{
+background:#25D366;
+color:white;
+}
+
+.maps{
+background:#2563eb;
+color:white;
+}
+
+.btn:hover{
+transform:scale(1.05);
+}
+
+.section{
+padding:70px 20px;
+max-width:1200px;
+margin:auto;
+}
+
+.section h2{
+text-align:center;
+margin-bottom:50px;
+font-size:28px;
+}
+
+.cards{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+gap:30px;
+}
+
+.card{
+background:white;
+border-radius:20px;
+overflow:hidden;
+box-shadow:0 10px 30px rgba(0,0,0,0.08);
+transition:0.3s;
+display:flex;
+flex-direction:column;
+}
+
+.card:hover{
+transform:translateY(-8px);
+}
+
+.card img{
+width:100%;
+height:220px;
+object-fit:cover;
+}
+
+.card-content{
+padding:20px;
+flex:1;
+display:flex;
+flex-direction:column;
+justify-content:space-between;
+}
+
+.card h3{
+margin-bottom:10px;
+}
+
+.card p{
+margin-bottom:15px;
+font-size:14px;
+}
+
+footer{
+background:#0f172a;
+color:white;
+text-align:center;
+padding:30px;
+margin-top:50px;
+}
+
+.floating-whatsapp{
+position:fixed;
+bottom:20px;
+right:20px;
+background:#25D366;
+color:white;
+padding:16px 20px;
+border-radius:50%;
+font-size:22px;
+text-decoration:none;
+box-shadow:0 8px 20px rgba(0,0,0,0.3);
+}
+
+@media(max-width:600px){
+header h1{font-size:26px;}
+header p{font-size:15px;}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>Jorge Vitor 🚘</h1>
+<p>Motorista Executivo & Passeios Turísticos no Espírito Santo</p>
+<a class="btn whatsapp" href="https://wa.me/5527992973005" target="_blank">
+Falar no WhatsApp
+</a>
+</header>
+
+<section class="section">
+<h2>Passeios Turísticos</h2>
+
+<div class="cards">
+
+<div class="card">
+<img src="vitoria.jpg">
+<div class="card-content">
+<h3>Vitória</h3>
+<p>Curva da Jurema • Camburi • Centro Histórico • Ilha do Boi</p>
+</div>
+</div>
+
+<div class="card">
+<img src="vilavelha.jpg">
+<div class="card-content">
+<h3>Vila Velha</h3>
+<p>Praia da Costa • Convento da Penha • Morro do Moreno</p>
+</div>
+</div>
+
+<div class="card">
+<img src="guarapari.jpg">
+<div class="card-content">
+<h3>Guarapari</h3>
+<p>Praia do Morro • Castanheiras • Três Praias</p>
+</div>
+</div>
+
+</div>
+</section>
+
 <section class="section">
 <h2>Dicas Onde Comer 🍽</h2>
 
@@ -59,3 +252,12 @@
 
 </div>
 </section>
+
+<footer>
+© 2026 Jorge Vitor | Atendimento Aeroporto Vitória - ES
+</footer>
+
+<a class="floating-whatsapp" href="https://wa.me/5527992973005" target="_blank">📲</a>
+
+</body>
+</html>
