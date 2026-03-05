@@ -12,12 +12,12 @@
 
 body{
 font-family:'Poppins',sans-serif;
-background:#f8fafc;
+background:#f4f6f9;
 color:#1e293b;
 }
 
 header{
-height:80vh;
+height:85vh;
 background:url('convento.jpg') center/cover no-repeat;
 display:flex;
 flex-direction:column;
@@ -29,27 +29,35 @@ padding:20px;
 }
 
 header h1{
-font-size:32px;
+font-size:34px;
 font-weight:700;
-margin-bottom:10px;
-text-shadow:0 3px 10px rgba(0,0,0,0.5);
+text-shadow:0 4px 15px rgba(0,0,0,0.6);
 }
 
 header p{
 font-size:18px;
-margin-bottom:20px;
-text-shadow:0 3px 10px rgba(0,0,0,0.5);
+margin:15px 0;
+text-shadow:0 4px 15px rgba(0,0,0,0.6);
 }
 
 .btn{
-background:#25D366;
-color:white;
+display:inline-block;
 padding:14px 28px;
 border-radius:50px;
 text-decoration:none;
 font-weight:600;
-box-shadow:0 5px 15px rgba(0,0,0,0.2);
+margin:5px;
 transition:0.3s;
+}
+
+.whatsapp{
+background:#25D366;
+color:white;
+}
+
+.maps{
+background:#2563eb;
+color:white;
 }
 
 .btn:hover{
@@ -57,21 +65,21 @@ transform:scale(1.05);
 }
 
 .section{
-padding:60px 20px;
-max-width:1100px;
+padding:70px 20px;
+max-width:1200px;
 margin:auto;
 }
 
 .section h2{
 text-align:center;
 margin-bottom:40px;
-font-size:26px;
+font-size:28px;
 }
 
 .cards{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:25px;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:30px;
 }
 
 .card{
@@ -80,6 +88,8 @@ border-radius:20px;
 overflow:hidden;
 box-shadow:0 10px 30px rgba(0,0,0,0.08);
 transition:0.3s;
+display:flex;
+flex-direction:column;
 }
 
 .card:hover{
@@ -94,10 +104,19 @@ object-fit:cover;
 
 .card-content{
 padding:20px;
+flex:1;
+display:flex;
+flex-direction:column;
+justify-content:space-between;
 }
 
 .card h3{
 margin-bottom:10px;
+}
+
+.card p{
+margin-bottom:15px;
+font-size:14px;
 }
 
 footer{
@@ -108,9 +127,17 @@ padding:30px;
 margin-top:50px;
 }
 
-@media(max-width:600px){
-header h1{font-size:24px;}
-header p{font-size:15px;}
+.floating-whatsapp{
+position:fixed;
+bottom:20px;
+right:20px;
+background:#25D366;
+color:white;
+padding:15px 18px;
+border-radius:50%;
+font-size:22px;
+text-decoration:none;
+box-shadow:0 8px 20px rgba(0,0,0,0.3);
 }
 </style>
 </head>
@@ -120,9 +147,7 @@ header p{font-size:15px;}
 <header>
 <h1>Jorge Vitor 🚘</h1>
 <p>Motorista Executivo & Passeios Turísticos no Espírito Santo</p>
-<a class="btn" href="https://wa.me/5527992973005" target="_blank">
-Falar no WhatsApp
-</a>
+<a class="btn whatsapp" href="https://wa.me/5527992973005" target="_blank">Falar no WhatsApp</a>
 </header>
 
 <section class="section">
@@ -134,7 +159,7 @@ Falar no WhatsApp
 <img src="vitoria.jpg">
 <div class="card-content">
 <h3>Vitória</h3>
-<p>Curva da Jurema • Camburi • Ilha do Boi • Centro Histórico</p>
+<p>Curva da Jurema • Camburi • Centro Histórico • Ilha do Boi</p>
 </div>
 </div>
 
@@ -158,27 +183,43 @@ Falar no WhatsApp
 </section>
 
 <section class="section">
-<h2>Restaurantes Recomendados</h2>
+<h2>Dicas Onde Comer 🍽</h2>
+
 <div class="cards">
 
 <div class="card">
+<img src="ilhadacaieiras.jpg">
+<div class="card-content">
+<h3>Ilhas das Caieiras</h3>
+<p>Tradição em moqueca capixaba e frutos do mar frescos.</p>
+<a class="btn maps" href="https://www.google.com/maps/search/Ilhas+das+Caieiras+Vitória+ES" target="_blank">Como Chegar</a>
+</div>
+</div>
+
+<div class="card">
+<img src="ilhacaraguejo.jpg">
 <div class="card-content">
 <h3>Ilha do Caranguejo</h3>
-<p>Especialidade em frutos do mar.</p>
+<p>Especialidade em caranguejo e culinária típica capixaba.</p>
+<a class="btn maps" href="https://www.google.com/maps/search/Ilha+do+Caranguejo+Vitória+ES" target="_blank">Como Chegar</a>
 </div>
 </div>
 
 <div class="card">
-<div class="card-content">
-<h3>Coco Bambu</h3>
-<p>Gastronomia sofisticada à beira-mar.</p>
-</div>
-</div>
-
-<div class="card">
+<img src="atlantica.jpg">
 <div class="card-content">
 <h3>Restaurante Atlântica</h3>
-<p>Vista privilegiada da Praia da Costa.</p>
+<p>Vista incrível da Praia da Costa com pratos sofisticados.</p>
+<a class="btn maps" href="https://www.google.com/maps/search/Restaurante+Atlântica+Praia+da+Costa" target="_blank">Como Chegar</a>
+</div>
+</div>
+
+<div class="card">
+<img src="bigode.jpg">
+<div class="card-content">
+<h3>Restaurante do Bigode</h3>
+<p>Tradicional restaurante de frutos do mar na Praia da Costa.</p>
+<a class="btn maps" href="https://www.google.com/maps/search/Restaurante+do+Bigode+Vila+Velha" target="_blank">Como Chegar</a>
 </div>
 </div>
 
@@ -188,6 +229,8 @@ Falar no WhatsApp
 <footer>
 © 2026 Jorge Vitor | Atendimento Aeroporto Vitória - ES
 </footer>
+
+<a class="floating-whatsapp" href="https://wa.me/5527992973005" target="_blank">📲</a>
 
 </body>
 </html>
