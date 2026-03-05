@@ -3,72 +3,114 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Jorge Vitor | Motorista Executivo</title>
+<title>Jorge Vitor | Turismo Executivo ES</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
+*{margin:0;padding:0;box-sizing:border-box;}
+
 body{
-margin:0;
-font-family:Arial, sans-serif;
-background:#0f172a;
-color:white;
+font-family:'Poppins',sans-serif;
+background:#f8fafc;
+color:#1e293b;
 }
 
 header{
+height:80vh;
+background:url('convento.jpg') center/cover no-repeat;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
 text-align:center;
-padding:40px 20px;
-background:#111827;
+color:white;
+padding:20px;
 }
 
 header h1{
-margin:0;
+font-size:32px;
+font-weight:700;
+margin-bottom:10px;
+text-shadow:0 3px 10px rgba(0,0,0,0.5);
 }
 
-.whatsapp{
-display:inline-block;
-margin-top:15px;
-padding:12px 25px;
+header p{
+font-size:18px;
+margin-bottom:20px;
+text-shadow:0 3px 10px rgba(0,0,0,0.5);
+}
+
+.btn{
 background:#25D366;
 color:white;
+padding:14px 28px;
+border-radius:50px;
 text-decoration:none;
-border-radius:30px;
-font-weight:bold;
+font-weight:600;
+box-shadow:0 5px 15px rgba(0,0,0,0.2);
+transition:0.3s;
+}
+
+.btn:hover{
+transform:scale(1.05);
 }
 
 .section{
-padding:30px 20px;
+padding:60px 20px;
+max-width:1100px;
+margin:auto;
 }
 
-.hero{
-width:100%;
-height:250px;
-background:url('convento.jpg') center/cover no-repeat;
-border-radius:15px;
-margin-bottom:30px;
+.section h2{
+text-align:center;
+margin-bottom:40px;
+font-size:26px;
 }
 
 .cards{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
-gap:15px;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
 }
 
 .card{
-background:#1e293b;
-border-radius:15px;
+background:white;
+border-radius:20px;
 overflow:hidden;
-text-align:center;
+box-shadow:0 10px 30px rgba(0,0,0,0.08);
+transition:0.3s;
+}
+
+.card:hover{
+transform:translateY(-8px);
 }
 
 .card img{
 width:100%;
-height:150px;
+height:220px;
 object-fit:cover;
 }
 
-footer{
-text-align:center;
+.card-content{
 padding:20px;
-background:#020617;
+}
+
+.card h3{
+margin-bottom:10px;
+}
+
+footer{
+background:#0f172a;
+color:white;
+text-align:center;
+padding:30px;
+margin-top:50px;
+}
+
+@media(max-width:600px){
+header h1{font-size:24px;}
+header p{font-size:15px;}
 }
 </style>
 </head>
@@ -77,41 +119,74 @@ background:#020617;
 
 <header>
 <h1>Jorge Vitor 🚘</h1>
-<p>Motorista Executivo e Passeios Turísticos no ES</p>
-<a class="whatsapp" href="https://wa.me/5527992973005" target="_blank">
+<p>Motorista Executivo & Passeios Turísticos no Espírito Santo</p>
+<a class="btn" href="https://wa.me/5527992973005" target="_blank">
 Falar no WhatsApp
 </a>
 </header>
 
 <section class="section">
 <h2>Passeios Turísticos</h2>
-<div class="hero"></div>
 
 <div class="cards">
 
 <div class="card">
 <img src="vitoria.jpg">
+<div class="card-content">
 <h3>Vitória</h3>
-<p>Curva da Jurema • Camburi • Centro</p>
+<p>Curva da Jurema • Camburi • Ilha do Boi • Centro Histórico</p>
+</div>
 </div>
 
 <div class="card">
 <img src="vilavelha.jpg">
+<div class="card-content">
 <h3>Vila Velha</h3>
-<p>Praia da Costa • Convento • Morro do Moreno</p>
+<p>Praia da Costa • Convento da Penha • Morro do Moreno</p>
+</div>
 </div>
 
 <div class="card">
 <img src="guarapari.jpg">
+<div class="card-content">
 <h3>Guarapari</h3>
 <p>Praia do Morro • Castanheiras • Três Praias</p>
+</div>
+</div>
+
+</div>
+</section>
+
+<section class="section">
+<h2>Restaurantes Recomendados</h2>
+<div class="cards">
+
+<div class="card">
+<div class="card-content">
+<h3>Ilha do Caranguejo</h3>
+<p>Especialidade em frutos do mar.</p>
+</div>
+</div>
+
+<div class="card">
+<div class="card-content">
+<h3>Coco Bambu</h3>
+<p>Gastronomia sofisticada à beira-mar.</p>
+</div>
+</div>
+
+<div class="card">
+<div class="card-content">
+<h3>Restaurante Atlântica</h3>
+<p>Vista privilegiada da Praia da Costa.</p>
+</div>
 </div>
 
 </div>
 </section>
 
 <footer>
-© 2026 Jorge Vitor | Atendimento Aeroporto Vitória ES
+© 2026 Jorge Vitor | Atendimento Aeroporto Vitória - ES
 </footer>
 
 </body>
