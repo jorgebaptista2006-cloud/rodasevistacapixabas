@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jorge Baptista | Transporte Executivo no Espírito Santo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to bottom, #0c2d57, #145da0, #2e8bc0);
+      color: white;
+      text-align: center;
+    }
+
+    section { padding: 70px 20px; }
+
+    h1 { font-size: 48px; margin: 20px 0 10px; }
+    h2 { font-size: 34px; margin-bottom: 35px; }
+    h3 { margin-top: 0; }
+
+    p {
+      font-size: 18px;
+      max-width: 850px;
+      margin: 0 auto 15px auto;
+      line-height: 1.6;
+    }
+
+    .button {
+      background: #25D366;
+      color: white;
+      padding: 18px 35px;
+      border-radius: 40px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 18px;
+      display: inline-block;
+      margin-top: 25px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+      transition: 0.3s ease;
+    }
+
+    .button:hover { transform: scale(1.05); }
+
+    .card-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    .card {
+      background: white;
+      color: #333;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+      transition: 0.3s ease;
+    }
+
+    .card:hover { transform: translateY(-10px); }
+
+    .profile {
+      width: 170px;
+      height: 170px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 5px solid white;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+    }
+
+    .car-img {
+      width: 100%;
+      max-width: 750px;
+      border-radius: 20px;
+      margin-top: 30px;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+    }
+
+    .light-section { background: white; color: #333; }
+    .light-gray-section { background: #f5f5f5; color: #333; }
+
+    footer {
+      background: #0c2d57;
+      padding: 25px;
+      font-size: 14px;
+    }
+
+    @media (max-width: 600px) {
+      h1 { font-size: 34px; }
+      h2 { font-size: 26px; }
+      p { font-size: 16px; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <section>
+    <img src="jorge.jpg" class="profile" alt="Jorge Baptista">
+    <h1>Jorge Baptista</h1>
+    <p>Motorista Executivo & Guia Turístico no Espírito Santo</p>
+    <a class="button" href="https://wa.me/5527992973005" target="_blank">
+      Falar no WhatsApp
+    </a>
+  </section>
+
+  <section>
+    <h2>Transporte Seguro, Confortável e Personalizado</h2>
+    <p>
+      Atendimento especializado para Aeroporto de Vitória, hotéis, passeios turísticos e viagens executivas.
+      Serviço profissional com conforto, segurança e pontualidade.
+    </p>
+    <img src="carro.jpg" class="car-img" alt="Veículo utilizado para transporte executivo">
+  </section>
+
+  <section class="light-section">
+    <h2>Passeios Turísticos</h2>
+    <div class="card-container">
+      <div class="card">
+        <h3>Vitória</h3>
+        <p>Curva da Jurema, Ilha do Boi, Projeto Tamar, Praça dos Namorados</p>
+      </div>
+
+      <div class="card">
+        <h3>Vila Velha</h3>
+        <p>Convento da Penha, Praia da Costa, Morro do Moreno, Fábrica de Chocolates Garoto</p>
+      </div>
+
+      <div class="card">
+        <h3>Guarapari</h3>
+        <p>Praia do Morro, Enseada Azul, Meaípe, Praia de Peracanga</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="light-gray-section">
+    <h2>Restaurantes Recomendados</h2>
+    <div class="card-container">
+      <div class="card">
+        <h3>Ilha do Caranguejo</h3>
+        <p>Moqueca capixaba e frutos do mar</p>
+      </div>
+
+      <div class="card">
+        <h3>Coco Bambu</h3>
+        <p>Especialidade em camarões e pratos sofisticados</p>
+      </div>
+
+      <div class="card">
+        <h3>Restaurante Atlântica</h3>
+        <p>Vista privilegiada da Praia da Costa</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Atendimento 5 Estrelas</h2>
+    <p>
+      Sua melhor experiência em transporte no Espírito Santo começa aqui.
+      Reserve agora e tenha um atendimento exclusivo.
+    </p>
+    <a class="button" href="https://wa.me/5527992973005" target="_blank">
+      Reservar Agora
+    </a>
+  </section>
+
+  <footer>
+    © 2026 Jorge Baptista - Transporte Executivo no Espírito Santo
+  </footer>
+
+</body>
+</html>
