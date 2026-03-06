@@ -1,272 +1,1514 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Jorge Baptista | Turismo Executivo ES</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Descubra o Espírito Santo - Turismo Capixaba</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+        :root {
+            --azul-pedra: #4A90E2;
+            --azul-profundo: #1E3A5F;
+            --verde-floresta: #2D5016;
+            --areia: #F5E6D3;
+            --laranja-por-do-sol: #FF6B35;
+            --branco: #FFFFFF;
+            --cinza-claro: #F8F9FA;
+        }
 
-<style>
-*{margin:0;padding:0;box-sizing:border-box;}
+        html {
+            scroll-behavior: smooth;
+        }
 
-body{
-font-family:'Poppins',sans-serif;
-background:#f4f6f9;
-color:#1e293b;
-line-height:1.6;
-}
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
 
-header{
-height:85vh;
-background:url('convento.jpg') center/cover no-repeat;
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
-text-align:center;
-color:white;
-padding:20px;
-}
+        /* Navegação */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
 
-header h1{
-font-size:36px;
-font-weight:700;
-text-shadow:0 4px 15px rgba(0,0,0,0.6);
-}
+        nav.scrolled {
+            padding: 0.5rem 0;
+        }
 
-header p{
-font-size:18px;
-margin:15px 0;
-text-shadow:0 4px 15px rgba(0,0,0,0.6);
-}
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-.btn{
-display:inline-block;
-padding:12px 25px;
-border-radius:40px;
-text-decoration:none;
-font-weight:600;
-margin-top:10px;
-transition:0.3s;
-font-size:14px;
-}
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--azul-profundo);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
 
-.whatsapp{
-background:#25D366;
-color:white;
-}
+        .logo::before {
+            content: "🌊";
+            font-size: 1.8rem;
+        }
 
-.maps{
-background:#2563eb;
-color:white;
-}
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
 
-.btn:hover{
-transform:scale(1.05);
-}
+        .nav-links a {
+            text-decoration: none;
+            color: var(--azul-profundo);
+            font-weight: 600;
+            position: relative;
+            transition: color 0.3s;
+        }
 
-.section{
-padding:70px 20px;
-max-width:1200px;
-margin:auto;
-}
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--laranja-por-do-sol);
+            transition: width 0.3s;
+        }
 
-.section h2{
-text-align:center;
-margin-bottom:50px;
-font-size:28px;
-}
+        .nav-links a:hover::after {
+            width: 100%;
+        }
 
-.cards{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-gap:30px;
-}
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            gap: 4px;
+            cursor: pointer;
+        }
 
-.card{
-background:white;
-border-radius:20px;
-overflow:hidden;
-box-shadow:0 10px 30px rgba(0,0,0,0.08);
-transition:0.3s;
-display:flex;
-flex-direction:column;
-}
+        .mobile-menu span {
+            width: 25px;
+            height: 3px;
+            background: var(--azul-profundo);
+            transition: 0.3s;
+        }
 
-.card:hover{
-transform:translateY(-8px);
-}
+        /* Hero Section com Imagem de Fundo */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(135deg, rgba(30, 58, 95, 0.8), rgba(74, 144, 226, 0.7)), url('https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Guarapari_-_ES._Aerial_view_of_the_city_of_Guarapari_and_its_beaches%2C_in_Esp%C3%ADrito_Santo%2C_Brazil.jpg/1280px-Guarapari_-_ES._Aerial_view_of_the_city_of_Guarapari_and_its_beaches%2C_in_Esp%C3%ADrito_Santo%2C_Brazil.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
 
-.card img{
-width:100%;
-height:220px;
-object-fit:cover;
-}
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23ffffff" fill-opacity="0.1" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,112C672,96,768,96,864,112C960,128,1056,160,1152,160C1248,160,1344,128,1392,112L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>') no-repeat bottom;
+            background-size: cover;
+            animation: wave 10s ease-in-out infinite;
+        }
 
-.card-content{
-padding:20px;
-flex:1;
-display:flex;
-flex-direction:column;
-justify-content:space-between;
-}
+        @keyframes wave {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
 
-.card h3{
-margin-bottom:10px;
-}
+        .hero-content {
+            text-align: center;
+            color: var(--branco);
+            z-index: 1;
+            padding: 2rem;
+            max-width: 800px;
+        }
 
-.card p{
-margin-bottom:15px;
-font-size:14px;
-}
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            opacity: 0;
+            animation: fadeInUp 1s ease forwards;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
 
-footer{
-background:#0f172a;
-color:white;
-text-align:center;
-padding:30px;
-margin-top:50px;
-}
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            opacity: 0;
+            animation: fadeInUp 1s ease 0.3s forwards;
+            font-weight: 300;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
 
-.floating-whatsapp{
-position:fixed;
-bottom:20px;
-right:20px;
-background:#25D366;
-color:white;
-padding:16px 20px;
-border-radius:50%;
-font-size:22px;
-text-decoration:none;
-box-shadow:0 8px 20px rgba(0,0,0,0.3);
-}
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: var(--laranja-por-do-sol);
+            color: var(--branco);
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 700;
+            transition: transform 0.3s, box-shadow 0.3s;
+            opacity: 0;
+            animation: fadeInUp 1s ease 0.6s forwards;
+            border: 2px solid transparent;
+        }
 
-@media(max-width:600px){
-header h1{font-size:26px;}
-header p{font-size:15px;}
-}
-</style>
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(255, 107, 53, 0.4);
+            background: transparent;
+            border-color: var(--branco);
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+            color: var(--branco);
+            font-size: 2rem;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+            40% { transform: translateX(-50%) translateY(-10px); }
+            60% { transform: translateX(-50%) translateY(-5px); }
+        }
+
+        /* Seções Gerais */
+        section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: var(--azul-profundo);
+            text-align: center;
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: var(--laranja-por-do-sol);
+            margin: 10px auto;
+            border-radius: 2px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 3rem;
+            font-size: 1.1rem;
+        }
+
+        /* Cards de Destinos com Imagens */
+        .destinos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .destino-card {
+            background: var(--branco);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .destino-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+        }
+
+        .destino-image {
+            height: 250px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .destino-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .destino-card:hover .destino-image img {
+            transform: scale(1.1);
+        }
+
+        .destino-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--laranja-por-do-sol);
+            color: white;
+            padding: 0.3rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            z-index: 2;
+        }
+
+        .destino-content {
+            padding: 1.5rem;
+        }
+
+        .destino-content h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: var(--azul-profundo);
+            margin-bottom: 0.5rem;
+        }
+
+        .destino-content .localizacao {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+
+        .destino-content p {
+            color: #555;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .destino-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .tag {
+            background: var(--cinza-claro);
+            color: var(--azul-profundo);
+            padding: 0.2rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        /* Seção de Restaurantes */
+        .restaurantes-section {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 5rem 2rem;
+        }
+
+        .restaurantes-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .restaurantes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .restaurante-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .restaurante-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+
+        .restaurante-header {
+            background: var(--azul-profundo);
+            color: white;
+            padding: 1.5rem;
+            position: relative;
+        }
+
+        .restaurante-header h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .restaurante-header .tipo {
+            font-size: 0.85rem;
+            opacity: 0.9;
+        }
+
+        .restaurante-body {
+            padding: 1.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .restaurante-info {
+            margin-bottom: 1rem;
+            color: #555;
+            font-size: 0.95rem;
+        }
+
+        .restaurante-info strong {
+            color: var(--azul-profundo);
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+
+        .restaurante-info p {
+            margin-bottom: 0.5rem;
+            line-height: 1.5;
+        }
+
+        .restaurante-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .tag-restaurante {
+            background: var(--cinza-claro);
+            color: var(--azul-profundo);
+            padding: 0.2rem 0.6rem;
+            border-radius: 12px;
+            font-size: 0.7rem;
+            font-weight: 600;
+        }
+
+        .btn-maps {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            background: #4285F4;
+            color: white;
+            text-decoration: none;
+            padding: 0.8rem 1.2rem;
+            border-radius: 25px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+            margin-top: auto;
+        }
+
+        .btn-maps:hover {
+            background: #3367D6;
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(66, 133, 244, 0.4);
+        }
+
+        .btn-maps::before {
+            content: "📍";
+        }
+
+        /* Seção de Regiões */
+        .regioes {
+            background: linear-gradient(to bottom, var(--cinza-claro), var(--branco));
+            padding: 5rem 2rem;
+        }
+
+        .regioes-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .regioes-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .tab-btn {
+            padding: 0.8rem 1.5rem;
+            border: 2px solid var(--azul-pedra);
+            background: transparent;
+            color: var(--azul-pedra);
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .tab-btn.active,
+        .tab-btn:hover {
+            background: var(--azul-pedra);
+            color: white;
+            transform: scale(1.05);
+        }
+
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.5s;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .regiao-info {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .regiao-info h3 {
+            color: var(--azul-profundo);
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .regiao-info ul {
+            list-style: none;
+            margin-top: 1rem;
+        }
+
+        .regiao-info li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .regiao-info li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--laranja-por-do-sol);
+            font-weight: bold;
+        }
+
+        /* Gastronomia com Imagens */
+        .gastronomia {
+            background: var(--azul-profundo);
+            color: white;
+            padding: 5rem 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .gastronomia::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 500px;
+            height: 500px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 50%;
+        }
+
+        .gastronomia-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .gastronomia h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .pratos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .prato-card {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            border: 1px solid rgba(255,255,255,0.2);
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+
+        .prato-card:hover {
+            transform: scale(1.02);
+            background: rgba(255,255,255,0.15);
+        }
+
+        .prato-image {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .prato-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+
+        .prato-card:hover .prato-image img {
+            transform: scale(1.1);
+        }
+
+        .prato-content {
+            padding: 1.5rem;
+        }
+
+        .prato-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: var(--laranja-por-do-sol);
+        }
+
+        /* Informações Úteis */
+        .info-section {
+            background: var(--cinza-claro);
+            padding: 5rem 2rem;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .info-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .info-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .info-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .info-card h3 {
+            color: var(--azul-profundo);
+            margin-bottom: 0.5rem;
+        }
+
+        /* Galeria de Imagens */
+        .galeria-section {
+            padding: 5rem 2rem;
+            background: white;
+        }
+
+        .galeria-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1rem;
+            max-width: 1200px;
+            margin: 3rem auto 0;
+        }
+
+        .galeria-item {
+            position: relative;
+            height: 250px;
+            border-radius: 15px;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .galeria-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .galeria-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .galeria-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            color: white;
+            padding: 1.5rem;
+            transform: translateY(100%);
+            transition: transform 0.3s;
+        }
+
+        .galeria-item:hover .galeria-overlay {
+            transform: translateY(0);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--azul-profundo);
+            color: white;
+            padding: 3rem 2rem 1rem;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+        }
+
+        .footer-links a:hover {
+            opacity: 1;
+            color: var(--laranja-por-do-sol);
+        }
+
+        .social-links {
+            margin: 2rem 0;
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: background 0.3s, transform 0.3s;
+        }
+
+        .social-links a:hover {
+            background: var(--laranja-por-do-sol);
+            transform: translateY(-3px);
+        }
+
+        /* Responsivo */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu {
+                display: flex;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .destinos-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .restaurantes-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Animações de Scroll */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s, transform 0.8s;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
 </head>
-
 <body>
 
-<header>
-<h1>Jorge Baptista 🚘</h1>
-<p>Motorista Executivo & Passeios Turísticos no Espírito Santo</p>
-<a class="btn whatsapp" href="https://wa.me/5527992973005" target="_blank">
-Falar no WhatsApp
-</a>
-</header>
+    <!-- Navegação -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <div class="logo">Espírito Santo</div>
+            <ul class="nav-links">
+                <li><a href="#inicio">Início</a></li>
+                <li><a href="#destinos">Destinos</a></li>
+                <li><a href="#restaurantes">Restaurantes</a></li>
+                <li><a href="#regioes">Regiões</a></li>
+                <li><a href="#galeria">Galeria</a></li>
+                <li><a href="#gastronomia">Gastronomia</a></li>
+                <li><a href="#info">Informações</a></li>
+            </ul>
+            <div class="mobile-menu" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
 
-<section class="section">
-<h2>Passeios Turísticos</h2>
+    <!-- Hero Section -->
+    <section class="hero" id="inicio">
+        <div class="hero-content">
+            <h1>Espírito Santo</h1>
+            <p>Descubra o estado onde o mar encontra a montanha, e a cultura capixaba encanta a cada esquina</p>
+            <a href="#destinos" class="cta-button">Explorar Destinos</a>
+        </div>
+        <div class="scroll-indicator">↓</div>
+    </section>
 
-<div class="cards">
+    <!-- Destinos Principais -->
+    <section id="destinos">
+        <h2 class="section-title">Destinos Imperdíveis</h2>
+        <p class="section-subtitle">Do litoral às montanhas, conheça os lugares que fazem do ES um destino único</p>
 
-<div class="card">
-<img src="vitoria.jpg">
-<div class="card-content">
-<h3>Vitória</h3>
-<p>Curva da Jurema • Camburi • Centro Histórico • Ilha do Boi</p>
-</div>
-</div>
+        <div class="destinos-grid">
+            <!-- Pedra Azul -->
+            <div class="destino-card fade-in">
+                <div class="destino-image">
+                    <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0d/a4/0f/ff/pousada-pedra-azul.jpg?w=900&h=500&s=1" alt="Pedra Azul em Domingos Martins">
+                    <span class="destino-badge">Natureza</span>
+                </div>
+                <div class="destino-content">
+                    <h3>Pedra Azul</h3>
+                    <div class="localizacao">📍 Domingos Martins - ES</div>
+                    <p>Um dos cartões-postais mais famosos do estado, com 1.822m de altitude. A pedra muda de cor conforme a incidência da luz solar devido aos líquens que a cobrem. Oferece trilhas, piscinas naturais e escalada.</p>
+                    <div class="destino-tags">
+                        <span class="tag">Trilhas</span>
+                        <span class="tag">Aventura</span>
+                        <span class="tag">Clima Ameno</span>
+                    </div>
+                </div>
+            </div>
 
-<div class="card">
-<img src="vilavelha.jpg">
-<div class="card-content">
-<h3>Vila Velha</h3>
-<p>Praia da Costa • Convento da Penha • Morro do Moreno</p>
-</div>
-</div>
+            <!-- Convento da Penha -->
+            <div class="destino-card fade-in">
+                <div class="destino-image">
+                    <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/09/98/42/22/convento-n-s-da-penha.jpg?w=900&h=500&s=1" alt="Convento da Penha em Vila Velha">
+                    <span class="destino-badge">Histórico</span>
+                </div>
+                <div class="destino-content">
+                    <h3>Convento da Penha</h3>
+                    <div class="localizacao">📍 Vila Velha - ES</div>
+                    <p>Construído no século XVI, é o ponto turístico mais visitado do ES. Localizado no alto de um morro, oferece uma vista panorâmica espetacular da Baía de Vitória e da Terceira Ponte.</p>
+                    <div class="destino-tags">
+                        <span class="tag">Religioso</span>
+                        <span class="tag">História</span>
+                        <span class="tag">Vista Panorâmica</span>
+                    </div>
+                </div>
+            </div>
 
-<div class="card">
-<img src="guarapari.jpg">
-<div class="card-content">
-<h3>Guarapari</h3>
-<p>Praia do Morro • Castanheiras • Três Praias</p>
-</div>
-</div>
-  
-<div class="cards">  
-<div class="card">
-<img src="montanhas.jpg">
-<div class="card-content">
-<h3>Montanhas Capixabas</h3>
-<p>Pedra Azul • Domingos Martins • Clima europeu • Turismo rural e gastronômico.</p>
-</div>
-</div>
-  
-</div>
-</section>
+            <!-- Praia de Itaúnas -->
+            <div class="destino-card fade-in">
+                <div class="destino-image">
+                    <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0c/39/5d/3f/dunas-de-itaunas.jpg?w=700&h=700&s=1" alt="Dunas de Itaúnas">
+                    <span class="destino-badge">Praias</span>
+                </div>
+                <div class="destino-content">
+                    <h3>Dunas de Itaúnas</h3>
+                    <div class="localizacao">📍 Conceição da Barra - ES</div>
+                    <p>Vila de pescadores no extremo norte do litoral, famosa por suas dunas de até 30 metros de altura e pelo forró pé-de-serra. A praia da Barra do Riacho fica na divisa com a Bahia.</p>
+                    <div class="destino-tags">
+                        <span class="tag">Dunas</span>
+                        <span class="tag">Forró</span>
+                        <span class="tag">Praia Desertas</span>
+                    </div>
+                </div>
+            </div>
 
-<section class="section">
-<h2>Dicas Onde Comer 🍽</h2>
+            <!-- Cachoeira de Matilde -->
+            <div class="destino-card fade-in">
+                <div class="destino-image">
+                    <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/09/86/80/8e/cachoeira-de-matilde.jpg?w=1200&h=-1&s=1" alt="Cachoeira de Matilde">
+                    <span class="destino-badge">Aventura</span>
+                </div>
+                <div class="destino-content">
+                    <h3>Cachoeira de Matilde</h3>
+                    <div class="localizacao">📍 Alfredo Chaves - ES</div>
+                    <p>Queda de 70 metros no Rio Benevente, ideal para rapel (45m de descida), parapente e trekking. A antiga Estação Ferroviária de Mathilde funciona como espaço cultural.</p>
+                    <div class="destino-tags">
+                        <span class="tag">Rapel</span>
+                        <span class="tag">Parapente</span>
+                        <span class="tag">História</span>
+                    </div>
+                </div>
+            </div>
 
-<div class="cards">
+            <!-- Guarapari -->
+            <div class="destino-card fade-in">
+                <div class="destino-image">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Guarapari_-_ES._Aerial_view_of_the_city_of_Guarapari_and_its_beaches%2C_in_Esp%C3%ADrito_Santo%2C_Brazil.jpg/1280px-Guarapari_-_ES._Aerial_view_of_the_city_of_Guarapari_and_its_beaches%2C_in_Esp%C3%ADrito_Santo%2C_Brazil.jpg" alt="Vista aérea de Guarapari">
+                    <span class="destino-badge">Litoral</span>
+                </div>
+                <div class="destino-content">
+                    <h3>Guarapari</h3>
+                    <div class="localizacao">📍 Guarapari - ES</div>
+                    <p>Principal polo turístico do ES, famosa pelas praias de areia monazítica (com propriedades terapêuticas). Destaques para Setiba, Três Praias, Praia dos Padres e o badalado centro.</p>
+                    <div class="destino-tags">
+                        <span class="tag">Praias</span>
+                        <span class="tag">Monazita</span>
+                        <span class="tag">Vida Noturna</span>
+                    </div>
+                </div>
+            </div>
 
-<div class="card">
-<img src="ilhadacaieiras.jpg">
-<div class="card-content">
-<h3>Ilhas das Caieiras</h3>
-<p>Tradicional polo gastronômico famoso pela autêntica moqueca capixaba.</p>
-<a class="btn maps" href="https://www.google.com/maps/search/Ilhas+das+Caieiras+Vitória+ES" target="_blank">Como Chegar</a>
-</div>
-</div>
+            <!-- Pico da Bandeira -->
+            <div class="destino-card fade-in">
+                <div class="destino-image">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/b/b8/Pico_da_bandeira.jpg" alt="Pico da Bandeira">
+                    <span class="destino-badge">Montanhismo</span>
+                </div>
+                <div class="destino-content">
+                    <h3>Pico da Bandeira</h3>
+                    <div class="localizacao">📍 Alto Caparaó - ES/MG</div>
+                    <p>Terceiro ponto mais alto do Brasil (2.892m), localizado no Parque Nacional do Caparaó. Trilha desafiadora que recompensa com vistas de tirar o fôlego.</p>
+                    <div class="destino-tags">
+                        <span class="tag">Trekking</span>
+                        <span class="tag">Camping</span>
+                        <span class="tag">Fauna e Flora</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<div class="card">
-<img src="ilhacaraguejo.jpg">
-<div class="card-content">
-<h3>Ilha do Caranguejo</h3>
-<p>Especialidade em caranguejo e frutos do mar.</p>
-<a class="btn maps" href="https://www.google.com/maps/search/Ilha+do+Caranguejo+Vitória+ES" target="_blank">Como Chegar</a>
-</div>
-</div>
+    <!-- Seção de Restaurantes -->
+    <section class="restaurantes-section" id="restaurantes">
+        <div class="restaurantes-container">
+            <h2 class="section-title">Onde Comer</h2>
+            <p class="section-subtitle">Os melhores restaurantes para experimentar a verdadeira culinária capixaba</p>
 
-<div class="card">
-<img src="atlantica.jpg">
-<div class="card-content">
-<h3>Restaurante Atlântica</h3>
-<p>Vista incrível da Praia da Costa com pratos sofisticados.</p>
-<a class="btn maps" href="https://www.google.com/maps/search/Restaurante+Atlântica+Praia+da+Costa" target="_blank">Como Chegar</a>
-</div>
-</div>
+            <div class="restaurantes-grid">
+                <!-- Caranguejo do Assis -->
+                <div class="restaurante-card fade-in">
+                    <div class="restaurante-header">
+                        <h3>Caranguejo do Assis</h3>
+                        <span class="tipo">🦀 Frutos do Mar</span>
+                    </div>
+                    <div class="restaurante-body">
+                        <div class="restaurante-info">
+                            <strong>Especialidade:</strong>
+                            <p>Caranguejo e frutos do mar frescos na tradicional Ilha das Caieiras. Ambiente simples e autêntico com vista para o mar.</p>
+                            <strong>Local:</strong>
+                            <p>Ilha das Caieiras, Vitória - ES</p>
+                        </div>
+                        <div class="restaurante-tags">
+                            <span class="tag-restaurante">Caranguejo</span>
+                            <span class="tag-restaurante">Tradicional</span>
+                            <span class="tag-restaurante">Vista para o Mar</span>
+                        </div>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Caranguejo+do+Assis+Ilha+das+Caieiras+Vitória+ES" target="_blank" class="btn-maps">Como Chegar</a>
+                    </div>
+                </div>
 
-<div class="card">
-<img src="bigode.jpg">
-<div class="card-content">
-<h3>Restaurante do Bigode</h3>
-<p>Tradicional restaurante de frutos do mar na Praia da Costa.</p>
-<a class="btn maps" href="https://www.google.com/maps/search/Restaurante+do+Bigode+Vila+Velha" target="_blank">Como Chegar</a>
-</div>
-</div>
+                <!-- Ilha do Caranguejo -->
+                <div class="restaurante-card fade-in">
+                    <div class="restaurante-header">
+                        <h3>Ilha do Caranguejo</h3>
+                        <span class="tipo">🦀 Frutos do Mar</span>
+                    </div>
+                    <div class="restaurante-body">
+                        <div class="restaurante-info">
+                            <strong>Especialidade:</strong>
+                            <p>Restaurante moderno especializado em caranguejos e frutos do mar. Excelente atendimento e ambiente agradável.</p>
+                            <strong>Local:</strong>
+                            <p>Vitória - ES</p>
+                        </div>
+                        <div class="restaurante-tags">
+                            <span class="tag-restaurante">Caranguejo</span>
+                            <span class="tag-restaurante">Contemporâneo</span>
+                            <span class="tag-restaurante">Família</span>
+                        </div>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Ilha+do+Caranguejo+Vitória+ES" target="_blank" class="btn-maps">Como Chegar</a>
+                    </div>
+                </div>
 
-<div class="card">
-<img src="perfil.jpg">
-<div class="card-content">
-<h3>Restaurante Perfil</h3>
-<p>Ambiente moderno na Praia da Costa com excelente gastronomia.</p>
-<a class="btn maps" href="https://www.google.com/maps/search/Restaurante+Perfil+Praia+da+Costa" target="_blank">Como Chegar</a>
-</div>
-</div>
+                <!-- Restaurante Perfil -->
+                <div class="restaurante-card fade-in">
+                    <div class="restaurante-header">
+                        <h3>Restaurante Perfil</h3>
+                        <span class="tipo">🍽️ Self Service</span>
+                    </div>
+                    <div class="restaurante-body">
+                        <div class="restaurante-info">
+                            <strong>Especialidade:</strong>
+                            <p>Maior e melhor self service do ES com mais de 180 pratos diários. Oferece churrasco, comida japonesa, macarronadas e frutos do mar.</p>
+                            <strong>Local:</strong>
+                            <p>Praia da Costa, Vila Velha - ES</p>
+                        </div>
+                        <div class="restaurante-tags">
+                            <span class="tag-restaurante">Self Service</span>
+                            <span class="tag-restaurante">Variado</span>
+                            <span class="tag-restaurante">Churrasco</span>
+                        </div>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Restaurante+Perfil+Praia+da+Costa+Vila+Velha+ES" target="_blank" class="btn-maps">Como Chegar</a>
+                    </div>
+                </div>
 
-<div class="card">
-<img src="triangulo.jpg">
-<div class="card-content">
-<h3>Triângulo das Bermudas</h3>
-<p>Região mais movimentada de Vitória com bares e restaurantes variados.</p>
-<a class="btn maps" href="https://www.google.com/maps/search/Triângulo+das+Bermudas+Vitória+ES" target="_blank">Como Chegar</a>
-</div>
-</div>
+                <!-- Restaurante Atlântica -->
+                <div class="restaurante-card fade-in">
+                    <div class="restaurante-header">
+                        <h3>Restaurante Atlântica</h3>
+                        <span class="tipo">🐟 Frutos do Mar</span>
+                    </div>
+                    <div class="restaurante-body">
+                        <div class="restaurante-info">
+                            <strong>Especialidade:</strong>
+                            <p>Moqueca capixaba e camarão no coco. Um dos mais tradicionais da Praia da Costa com vista privilegiada.</p>
+                            <strong>Local:</strong>
+                            <p>Praia da Costa, Vila Velha - ES</p>
+                        </div>
+                        <div class="restaurante-tags">
+                            <span class="tag-restaurante">Moqueca</span>
+                            <span class="tag-restaurante">Tradicional</span>
+                            <span class="tag-restaurante">Vista</span>
+                        </div>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Restaurante+Atlântica+Praia+da+Costa+Vila+Velha+ES" target="_blank" class="btn-maps">Como Chegar</a>
+                    </div>
+                </div>
 
-</div>
-</section>
+                <!-- Bar do Bigode -->
+                <div class="restaurante-card fade-in">
+                    <div class="restaurante-header">
+                        <h3>Bar do Bigode</h3>
+                        <span class="tipo">🦐 Frutos do Mar</span>
+                    </div>
+                    <div class="restaurante-body">
+                        <div class="restaurante-info">
+                            <strong>Especialidade:</strong>
+                            <p>Arroz de mariscos e casquinha de siri. Vista espetacular da Baía de Vitória, Terceira Ponte e Convento da Penha. 35 anos de tradição.</p>
+                            <strong>Local:</strong>
+                            <p>Jesus de Nazaré, Vitória - ES</p>
+                        </div>
+                        <div class="restaurante-tags">
+                            <span class="tag-restaurante">Mariscada</span>
+                            <span class="tag-restaurante">Vista Panorâmica</span>
+                            <span class="tag-restaurante">Tradição</span>
+                        </div>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Bar+do+Bigode+Jesus+de+Nazaré+Vitória+ES" target="_blank" class="btn-maps">Como Chegar</a>
+                    </div>
+                </div>
 
-<footer>
-© 2026 Jorge Baptista | Atendimento Aeroporto Vitória - ES
-</footer>
+                <!-- Ilha das Caieiras -->
+                <div class="restaurante-card fade-in">
+                    <div class="restaurante-header">
+                        <h3>Restaurante Caieiras</h3>
+                        <span class="tipo">🐟 Frutos do Mar</span>
+                    </div>
+                    <div class="restaurante-body">
+                        <div class="restaurante-info">
+                            <strong>Especialidade:</strong>
+                            <p>Mariscada à moda Dona Bia e moqueca capixaba original. Ambiente simples e autêntico de vila de pescadores.</p>
+                            <strong>Local:</strong>
+                            <p>Ilha das Caieiras, Vitória - ES</p>
+                        </div>
+                        <div class="restaurante-tags">
+                            <span class="tag-restaurante">Mariscada</span>
+                            <span class="tag-restaurante">Autêntico</span>
+                            <span class="tag-restaurante">Pescadores</span>
+                        </div>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Restaurante+Caieiras+Ilha+das+Caieiras+Vitória+ES" target="_blank" class="btn-maps">Como Chegar</a>
+                    </div>
+                </div>
 
-<a class="floating-whatsapp" href="https://wa.me/5527992973005" target="_blank">📲</a>
+                <!-- Point do Espírito Santo -->
+                <div class="restaurante-card fade-in">
+                    <div class="restaurante-header">
+                        <h3>Point do Espírito Santo</h3>
+                        <span class="tipo">🍻 Bar e Petiscos</span>
+                    </div>
+                    <div class="restaurante-body">
+                        <div class="restaurante-info">
+                            <strong>Especialidade:</strong>
+                            <p>Localizado no famoso Triângulo das Bermudas, é o point da boemia capixaba. Petiscos variados e música ao vivo.</p>
+                            <strong>Local:</strong>
+                            <p>Triângulo das Bermudas, Praia do Canto, Vitória - ES</p>
+                        </div>
+                        <div class="restaurante-tags">
+                            <span class="tag-restaurante">Boteco</span>
+                            <span class="tag-restaurante">Música Ao Vivo</span>
+                            <span class="tag-restaurante">Vida Noturna</span>
+                        </div>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Triângulo+das+Bermudas+Praia+do+Canto+Vitória+ES" target="_blank" class="btn-maps">Como Chegar</a>
+                    </div>
+                </div>
 
+                <!-- Triângulo das Bermudas -->
+                <div class="restaurante-card fade-in">
+                    <div class="restaurante-header">
+                        <h3>Triângulo das Bermudas</h3>
+                        <span class="tipo">🎉 Vida Noturna</span>
+                    </div>
+                    <div class="restaurante-body">
+                        <div class="restaurante-info">
+                            <strong>Especialidade:</strong>
+                            <p>Concentra 60% da vida noturna de Vitória. Diversos bares e restaurantes entre as ruas Joaquim Lírio e João da Cruz.</p>
+                            <strong>Local:</strong>
+                            <p>Praia do Canto, Vitória - ES</p>
+                        </div>
+                        <div class="restaurante-tags">
+                            <span class="tag-restaurante">Bares</span>
+                            <span class="tag-restaurante">Agito</span>
+                            <span class="tag-restaurante">Happy Hour</span>
+                        </div>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Triângulo+das+Bermudas+Rua+Joaquim+Lírio+Vitória+ES" target="_blank" class="btn-maps">Como Chegar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Regiões -->
+    <section class="regioes" id="regioes">
+        <div class="regioes-container">
+            <h2 class="section-title">Explore por Região</h2>
+            <p class="section-subtitle">Cada canto do estado tem sua particularidade e encantos únicos</p>
+
+            <div class="regioes-tabs">
+                <button class="tab-btn active" onclick="showTab('metropolitana')">Metropolitana</button>
+                <button class="tab-btn" onclick="showTab('serra')">Serra Capixaba</button>
+                <button class="tab-btn" onclick="showTab('norte')">Litoral Norte</button>
+                <button class="tab-btn" onclick="showTab('sul')">Litoral Sul</button>
+                <button class="tab-btn" onclick="showTab('interior')">Interior</button>
+            </div>
+
+            <div id="metropolitana" class="tab-content active">
+                <div class="regiao-info">
+                    <h3>Região Metropolitana de Vitória</h3>
+                    <p>O coração econômico e cultural do estado, onde modernidade e história se encontram.</p>
+                    <ul>
+                        <li><strong>Convento da Penha:</strong> Vista panorâmica e história colonial</li>
+                        <li><strong>Praia da Costa:</strong> Principal praia urbana de Vila Velha</li>
+                        <li><strong>Projeto Tamar:</strong> Preservação de tartarugas marinhas</li>
+                        <li><strong>Praça do Papa:</strong> Mirante e área de lazer em Vitória</li>
+                        <li><strong>Fábrica da Garoto:</strong> Tour pela famosa fábrica de chocolates</li>
+                        <li><strong>Ilha das Caieiras:</strong> Tortas capixabas e artesanato</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div id="serra" class="tab-content">
+                <div class="regiao-info">
+                    <h3>Serra Capixaba</h3>
+                    <p>Clima ameno, cultura alemã e italiana, e paisagens de montanha que encantam.</p>
+                    <ul>
+                        <li><strong>Pedra Azul:</strong> Cartão-postal com trilhas e escalada</li>
+                        <li><strong>Venda Nova do Imigrante:</strong> Capital Nacional do Agroturismo</li>
+                        <li><strong>Domingos Martins:</strong> Rota do Lagarto e gastronomia típica</li>
+                        <li><strong>Santa Teresa:</strong> Cultura do café e vinhos coloniais</li>
+                        <li><strong>Marechal Floriano:</strong> Museu da Imigração e cachoeiras</li>
+                        <li><strong>Parque Nacional do Caparaó:</strong> Pico da Bandeira</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div id="norte" class="tab-content">
+                <div class="regiao-info">
+                    <h3>Litoral Norte</h3>
+                    <p>Praias desertas, preservadas e dunas impressionantes no extremo norte capixaba.</p>
+                    <ul>
+                        <li><strong>Itaúnas:</strong> Dunas e forró pé-de-serra</li>
+                        <li><strong>Barra Nova:</strong> Encontro do rio com o mar</li>
+                        <li><strong>Urusaquara:</strong> Foz do Rio Ipiranga e lagoas</li>
+                        <li><strong>Coqueiral de Aracruz:</strong> Coqueirais à beira mar</li>
+                        <li><strong>Praia do Riacho:</strong> Divisa com a Bahia</li>
+                        <li><strong>Reserva de Sooretama:</strong> Mata Atlântica preservada</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div id="sul" class="tab-content">
+                <div class="regiao-info">
+                    <h3>Litoral Sul</h3>
+                    <p>Praias tranquilas, cultura caiçara e a famosa moqueca capixaba.</p>
+                    <ul>
+                        <li><strong>Anchieta:</strong> Praia dos Castelhanos e Santuário Nacional</li>
+                        <li><strong>Marataízes:</strong> Falésias coloridas</li>
+                        <li><strong>Piúma:</strong> Praia familiar e calma</li>
+                        <li><strong>Iriri:</strong> Surf e natureza preservada</li>
+                        <li><strong>Itaipava:</strong> Pousadas rústicas e tranquilidade</li>
+                        <li><strong>Iconha:</strong> Cachoeiras e banhistas naturais</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div id="interior" class="tab-content">
+                <div class="regiao-info">
+                    <h3>Interior e Vales</h3>
+                    <p>Cultura do café, cachoeiras escondidas e cidades históricas coloniais.</p>
+                    <ul>
+                        <li><strong>Alegre:</strong> Cultura cafeeira e clima serrano</li>
+                        <li><strong>Cachoeiro de Itapemirim:</strong> Comércio e história</li>
+                        <li><strong>Muqui:</strong> Cidade histórica preservada</li>
+                        <li><strong>Atílio Vivacqua:</strong> Pedra das Caveiras</li>
+                        <li><strong>Guaçuí:</strong> Cachoeiras e produção de café</li>
+                        <li><strong>Iúna:</strong> Poço do Egito e ecoturismo</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Galeria de Imagens -->
+    <section class="galeria-section" id="galeria">
+        <h2 class="section-title">Galeria de Imagens</h2>
+        <p class="section-subtitle">Momentos inesquecíveis do Espírito Santo</p>
+        
+        <div class="galeria-grid">
+            <div class="galeria-item fade-in">
+                <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/10/a6/7d/3a/photo3jpg.jpg?w=900&h=-1&s=1" alt="Praia da Costa">
+                <div class="galeria-overlay">
+                    <h4>Praia da Costa</h4>
+                    <p>Vila Velha - ES</p>
+                </div>
+            </div>
+            <div class="galeria-item fade-in">
+                <img src="https://i0.statig.com.br/bancodeimagens/ch/e4/pg/che4pgta5t1qwjhssjvfu322z.jpg" alt="Praias de Guarapari">
+                <div class="galeria-overlay">
+                    <h4>Praias de Guarapari</h4>
+                    <p>Guarapari - ES</p>
+                </div>
+            </div>
+            <div class="galeria-item fade-in">
+                <img src="https://media-cdn.tripadvisor.com/media/photo-s/05/dd/50/17/cachoeira-de-matilde.jpg" alt="Cachoeira de Matilde">
+                <div class="galeria-overlay">
+                    <h4>Cachoeira de Matilde</h4>
+                    <p>Alfredo Chaves - ES</p>
+                </div>
+            </div>
+            <div class="galeria-item fade-in">
+                <img src="https://i0.wp.com/guiapicodabandeira.com.br/wp-content/uploads/2025/02/Pico-da-Bandeira-Noturno-Portaria-MG.jpg?fit=900%2C900&ssl=1" alt="Pico da Bandeira">
+                <div class="galeria-overlay">
+                    <h4>Pico da Bandeira</h4>
+                    <p>Alto Caparaó - ES/MG</p>
+                </div>
+            </div>
+            <div class="galeria-item fade-in">
+                <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0d/a4/0f/ff/pousada-pedra-azul.jpg?w=900&h=500&s=1" alt="Pedra Azul">
+                <div class="galeria-overlay">
+                    <h4>Pedra Azul</h4>
+                    <p>Domingos Martins - ES</p>
+                </div>
+            </div>
+            <div class="galeria-item fade-in">
+                <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/09/98/42/22/convento-n-s-da-penha.jpg?w=900&h=500&s=1" alt="Convento da Penha">
+                <div class="galeria-overlay">
+                    <h4>Convento da Penha</h4>
+                    <p>Vila Velha - ES</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gastronomia -->
+    <section class="gastronomia" id="gastronomia">
+        <div class="gastronomia-container">
+            <h2>Sabores Capixabas</h2>
+            <div class="pratos-grid">
+                <div class="prato-card fade-in">
+                    <div class="prato-image">
+                        <img src="https://foodandroad.com/wp-content/uploads/2021/06/img-brazil-moqueca-2.jpg" alt="Moqueca Capixaba">
+                    </div>
+                    <div class="prato-content">
+                        <h3>Moqueca Capixaba</h3>
+                        <p>Feita na panela de barro com azeite de oliva, urucum, cebola, tomate, coentro e pimentão. Não leva azeite de dendê como a baiana, destacando o sabor do peixe fresco.</p>
+                    </div>
+                </div>
+                <div class="prato-card fade-in">
+                    <div class="prato-image">
+                        <img src="https://www.saboresajinomoto.com.br/uploads/images/recipes/torta-capixaba.jpg" alt="Torta Capixaba">
+                    </div>
+                    <div class="prato-content">
+                        <h3>Torta Capixaba</h3>
+                        <p>Tradicional na Semana Santa, feita com frutos do mar (siri, camarão, ostra), palmito e farinha de mandioca. Vendida nas Paneleiras de Goiabeiras.</p>
+                    </div>
+                </div>
+                <div class="prato-card fade-in">
+                    <div class="prato-image">
+                        <img src="https://a0ea0a444b.cbaul-cdnwnd.com/4ca86055d8dfd962dd8d9b1fbe38ae34/200000992-21d3422cce/foto%2001.jpg" alt="Chocolates Garoto">
+                    </div>
+                    <div class="prato-content">
+                        <h3>Chocolates Garoto</h3>
+                        <p>Fábrica em Vila Velha produzindo desde 1929. O famoso "Creme de Avelã" e outros chocolates são ícones nacionais.</p>
+                    </div>
+                </div>
+                <div class="prato-card fade-in">
+                    <div class="prato-image">
+                        <img src="https://http2.mlstatic.com/D_NQ_NP_702018-MLB53043734947_122022-O.webp" alt="Vinho Colonial">
+                    </div>
+                    <div class="prato-content">
+                        <h3>Vinho Colonial</h3>
+                        <p>Produzido na região serrana, especialmente em Santa Teresa e Venda Nova, herdado da tradição italiana. Variedades como Bordô, Isabel e Cabernet Sauvignon.</p>
+                    </div>
+                </div>
+                <div class="prato-card fade-in">
+                    <div class="prato-image">
+                        <img src="https://uploads-noticias.broto.com.br/2026/01/espirito-santo-premio-queijos-artesanais-627x365.jpg" alt="Queijos da Serra">
+                    </div>
+                    <div class="prato-content">
+                        <h3>Queijos da Serra</h3>
+                        <p>Produção artesanal nas propriedades rurais da região serrana, parte do roteiro do agroturismo. Queijos premiados e de alta qualidade.</p>
+                    </div>
+                </div>
+                <div class="prato-card fade-in">
+                    <div class="prato-image">
+                        <img src="https://media-cdn.tripadvisor.com/media/photo-i/11/69/34/35/caranguejo-do-restaurante.jpg" alt="Caranguejo">
+                    </div>
+                    <div class="prato-content">
+                        <h3>Caranguejo</h3>
+                        <p>Na Ilha das Caieiras e Jesus de Nazaré, os restaurantes servem caranguejo fresco com vista para o mar. Tradição da culinária capixaba.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Informações Úteis -->
+    <section class="info-section" id="info">
+        <h2 class="section-title">Informações Úteis</h2>
+        <p class="section-subtitle">Dicas para aproveitar melhor sua viagem ao Espírito Santo</p>
+        
+        <div class="info-grid">
+            <div class="info-card fade-in">
+                <div class="info-icon">🌤️</div>
+                <h3>Clima</h3>
+                <p>Tropical ao litoral, temperado na serra. Leve roupas leves para o verão e um agasalho para as noites nas montanhas.</p>
+            </div>
+            <div class="info-card fade-in">
+                <div class="info-icon">✈️</div>
+                <h3>Como Chegar</h3>
+                <p>Aeroporto de Vitória (VIX) recebe voos de todo o Brasil. Rodovias BR-101 (litoral) e BR-262 (serra).</p>
+            </div>
+            <div class="info-card fade-in">
+                <div class="info-icon">🚗</div>
+                <h3>Locomoção</h3>
+                <p>Aluguel de carro recomendado para explorar a serra e litoral norte. Uber e táxis disponíveis na capital.</p>
+            </div>
+            <div class="info-card fade-in">
+                <div class="info-icon">📅</div>
+                <h3>Melhor Época</h3>
+                <p>Verão (dez-mar) para praias. Inverno (jun-set) para serra e agroturismo. Eventos o ano todo.</p>
+            </div>
+            <div class="info-card fade-in">
+                <div class="info-icon">🎫</div>
+                <h3>Agendamentos</h3>
+                <p>Parque Estadual da Pedra Azul requer agendamento obrigatório pelo site Agenda ES (gratuito).</p>
+            </div>
+            <div class="info-card fade-in">
+                <div class="info-icon">💰</div>
+                <h3>Moeda</h3>
+                <p>Real (R$). Cartões aceitos em cidades maiores. Leve dinheiro em espécie para praias e distritos.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="#inicio">Início</a>
+                <a href="#destinos">Destinos</a>
+                <a href="#restaurantes">Restaurantes</a>
+                <a href="#regioes">Regiões</a>
+                <a href="#galeria">Galeria</a>
+                <a href="#gastronomia">Gastronomia</a>
+                <a href="#info">Informações</a>
+            </div>
+            <div class="social-links">
+                <a href="#" title="Instagram">📷</a>
+                <a href="#" title="Facebook">📘</a>
+                <a href="#" title="Twitter">🐦</a>
+                <a href="#" title="YouTube">▶️</a>
+            </div>
+            <p>&copy; 2025 Descubra o Espírito Santo. Desenvolvido para divulgação turística.</p>
+            <p style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.8;">
+                Fontes: Setur-ES, Viajantes e Caminhos, TripAdvisor, Wikimedia Commons
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Tab functionality
+        function showTab(tabName) {
+            // Hide all tabs
+            const tabs = document.querySelectorAll('.tab-content');
+            tabs.forEach(tab => tab.classList.remove('active'));
+            
+            // Remove active class from buttons
+            const buttons = document.querySelectorAll('.tab-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            
+            // Show selected tab
+            document.getElementById(tabName).classList.add('active');
+            
+            // Add active class to clicked button
+            event.target.classList.add('active');
+        }
+
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: "0px 0px -50px 0px"
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Mobile menu toggle
+        function toggleMenu() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+            
+            if (navLinks.style.display === 'flex') {
+                navLinks.style.position = 'absolute';
+                navLinks.style.top = '100%';
+                navLinks.style.left = '0';
+                navLinks.style.right = '0';
+                navLinks.style.background = 'white';
+                navLinks.style.flexDirection = 'column';
+                navLinks.style.padding = '1rem';
+                navLinks.style.boxShadow = '0 10px 20px rgba(0,0,0,0.1)';
+            }
+        }
+
+        // Add parallax effect to hero
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const hero = document.querySelector('.hero');
+            hero.style.transform = `translateY(${scrolled * 0.5}px)`;
+        });
+    </script>
 </body>
 </html>
